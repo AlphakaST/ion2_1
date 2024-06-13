@@ -170,10 +170,14 @@ with st.form(key="Feedback_form"):
                 st.write(f"문제 {i}: {feedbacks[i-1]}")
 
             # 기존 데이터에 새로운 데이터 추가
-            updated_data = pd.concat([existing_data, feedback_data], ignore_index=True)
-            
-            # MySQL 데이터베이스 업데이트
-            cursor.execute(feedback_data) 
+            for row in feedback_data.itertuples(index=False):
+                cursor.execute(
+                    """
+                    INSERT INTO student_responses_2 (student_id, number1, number2, number3, number4, number5, feedback1, feedback2, feedback3, feedback4, feedback5)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    """,
+                    row
+                )
             conn.commit()
             
             st.success("답안이 성공적으로 제출되었습니다!")
