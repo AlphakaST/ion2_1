@@ -171,7 +171,11 @@ with st.form(key="Feedback_form"):
 
             # 기존 데이터에 새로운 데이터 추가
             updated_data = pd.concat([existing_data, feedback_data], ignore_index=True)
+            
+            # MySQL 데이터베이스 업데이트
+            cursor.execute("DELETE FROM student_responses_2")  # 기존 데이터 삭제
             conn.commit()
+            
             st.success("답안이 성공적으로 제출되었습니다!")
 
 cursor.close()
