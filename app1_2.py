@@ -11,13 +11,15 @@ image = Image.open('header2.jpg')
 st.image(image)
 st.subheader("")
 st.title(":bookmark_tabs: 프로젝트명: 앙금 생성 반응 확인하기")
-st.header(':ballot_box_with_check: Mission: 이온 모형으로 반응 이해하기', divider='violet')
+st.header(':ballot_box_with_check: Mission: 이온 모형으로 반응 이해하기')
+st.divider()
 
 # 먼저, 이온 개념과 모형 내용 설명하기
 # 어떻게 설명하면서 수업할지 고민하기
 
 # 1. 이온 모형 영상
-st.subheader('1. 간단한 앙금 생성 반응, 모형으로 이해하기 :clipboard:', divider='violet')
+st.subheader('1. 간단한 앙금 생성 반응, 모형으로 이해하기 :clipboard:')
+st.divider()
 
 # 교과서 영상 첨부
 video_file = open('ion2.mp4', 'rb')
@@ -43,7 +45,8 @@ if submit_button:
 st.divider()
 
 # 2. 앙금 생성 반응(가상 실험)
-st.subheader('2. 앙금 생성 반응, 가상으로 실험하기! :test_tube:', divider='violet')
+st.subheader('2. 앙금 생성 반응, 가상으로 실험하기! :test_tube:')
+st.divider()
 
 # 영상 다 보고, 실험에 대한 설명 보도록 설계
 password2 = st.text_input("비밀번호를 입력하세요", type="password", key="password2")
